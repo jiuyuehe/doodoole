@@ -1,0 +1,24 @@
+post
+请求返回状态码：同http状态码
+
+错误码： errorCode
+	01，系统故障，02-xx子模块
+	0101 网络异常   
+	0201 账户密码错误，0202 帐号被冻结 。  0203用户名被注册，0204 EMAIL被注册,0205 2次密码不相同，
+     
+
+登录接口:xxx/xx/loginDTO 
+request:{"userName":"xxx","password":"xxx"}
+response:正常情况{status:200,sessionId:"sessionId"}
+response:错误情况{status:500,reason:"errorCode"}
+
+注册registerDTO
+request{"userName",password,repassword,email}
+response{status:200,sessionId:"sessionId"}
+response{status:500,reason:"errorCode"}
+
+获取当前用户：getUserInfo
+request:{sessionId:"sessionId"}
+response:{status:200,user{user对象}}
+
+
