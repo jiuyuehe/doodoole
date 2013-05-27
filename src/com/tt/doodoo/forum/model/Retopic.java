@@ -119,6 +119,10 @@ public class Retopic implements java.io.Serializable {
 		return this.retopicAuthority;
 	}
 
+	public void setRetopicParentId(Integer retopicParentId) {
+		this.retopicParentId = retopicParentId;
+	}
+
 	public void setRetopicAuthority(Integer retopicAuthority) {
 		this.retopicAuthority = retopicAuthority;
 	}

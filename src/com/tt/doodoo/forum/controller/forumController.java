@@ -53,11 +53,7 @@ public class forumController {
 	
 	
 	
-	@RequestMapping("/login")
-	public String login(HttpServletRequest request,HttpServletResponse response) {
-		
-		return "login";
-	}
+	
 	
 	@RequestMapping("/getCode")
 	public String getCode(HttpServletRequest request,HttpServletResponse response) {

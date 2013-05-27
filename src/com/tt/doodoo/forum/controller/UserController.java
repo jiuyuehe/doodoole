@@ -16,7 +16,7 @@ public class UserController {
 		return "managerLogin";
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping("/adminlogin")
 	public String adminlogin(HttpServletRequest request,HttpServletResponse response) {
 		
 		return "managerIndex";
@@ -32,9 +32,8 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request,HttpServletResponse response) {
 		
-		return "callBackUrl";
+		return "login";
 	}
-	
 	
 
 }
