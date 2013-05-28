@@ -4,9 +4,9 @@
 		<h1 id="logo"><a href="#">多多乐</a></h1>
 		        <div class="search">
                    <hr />
-				   <a href="<%=basePath%>login">登录</a>&nbsp;
+				   <a href="<%=basePath%>tologin">登录</a>&nbsp;
                    <hr />
-                   <a href="<%=basePath%>register"">注册新用户</a>
+                   <a href="<%=basePath%>toregister"">注册新用户</a>
                    <hr />
 			    </div>
 		<div class="cl">&nbsp;</div>

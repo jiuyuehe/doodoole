@@ -26,6 +26,7 @@
     
 	<mvc:resources mapping="/js/**" location="/js/**" cache-period="31556926"/>  
 	<mvc:resources mapping="/css/**" location="/css/**" cache-period="31556926"/> 
+	<mvc:resources mapping="/app-plugins/**" location="/app-plugins/**" cache-period="31556926"/> 
   	<!-- -
 	<mvc:resources mapping="/plug/**" location="/WEB-INF/plug/**" cache-period="31556926"/> 
   	<mvc:resources mapping="/images/**" location="/WEB-INF/images/**" cache-period="31556926"/>  

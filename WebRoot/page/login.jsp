@@ -27,27 +27,24 @@
     					<div class="main_regist">
 						<div class="wrapper">
 						<h2 class="under">用户登录</h2>
-						<form id="ContactForm" method="post">
+						<form id="ContactForm" method="post" action="<%=basePath%>login">
 						<div>
 							<div  class="wrapper">
 								<span>用户名:</span>
-								<input type="text" class="input" >
+								<input type="text" name="userName" class="input" >
 							</div>
 							<div  class="wrapper">
 								<span>密码:</span>
-								<input type="text" class="input" >
+								<input type="text"  name="password" class="input" >
 							</div>
-							<div  class="wrapper">
+							
+							<%--<div  class="wrapper">
 								<span>验证码:</span>
 								<input type="text" name="randomCode" class="codeinput" >
-								<img title="点击更换" id="code" onclick="javascript:refresh(this);" ><br/>
+								<img  alt="点击更换" id="code" onclick="javascript:refresh(this);" ><br/>
 							</div>
-							<!--  
-							<div  class="textarea_box">
-								<span>Your Message:</span>
-								<textarea name="textarea" cols="1" rows="1"></textarea>
-							</div>
-							-->
+							--%>
+							
 							<a href="#" onClick="document.getElementById('ContactForm').reset()">清空</a>
 							<a href="#" onClick="document.getElementById('ContactForm').submit()">登录</a>
 						</div>
@@ -59,6 +56,7 @@
 	
 	
 	<%@ include file="/page/common/footer.jsp"%>
+	</div>
 
 </body>
 </html>

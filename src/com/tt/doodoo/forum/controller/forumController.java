@@ -38,39 +38,6 @@ public class forumController {
 		
 		return "index";
 	}
-	
-	@RequestMapping("/register")
-	public String register() {
-		
-		return "register";
-	}
-	
-	@RequestMapping("/doRegister")
-	public String doRegister() {
-		
-		return null;
-	}
-	
-	
-	
-	
-	
-	@RequestMapping("/getCode")
-	public String getCode(HttpServletRequest request,HttpServletResponse response) {
-		 	response.setContentType("image/jpeg");
-	        response.setHeader("Pragma", "No-cache");
-	        response.setHeader("Cache-Control", "no-cache");
-	        response.setDateHeader("Expire", 0);
-	        RandomValidateCode randomValidateCode = new RandomValidateCode();
-	        try {
-	            randomValidateCode.getRandcode(request, response);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-		
-		return null;
-	}
-	
 
 	@RequestMapping("/categoryList")
 	public String catagoryList() {
