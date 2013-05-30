@@ -1,28 +1,17 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ include file="/page/common/header.jsp"%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'showCategory.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
-  </head>
-  
-  <body>
-    This is showCategory page. <br>
+<div id="page" class="shell">
+	<%@ include file="/page/common/top.jsp"%>
+   <ul class="nav nav-list bs-docs-sidenav affix">
+          <li class="active"><a href="#typography"><i class="icon-chevron-right"></i> Typography</a></li>
+          <li class=""><a href="#code"><i class="icon-chevron-right"></i> Code</a></li>
+          <li class=""><a href="#tables"><i class="icon-chevron-right"></i> Tables</a></li>
+          <li class=""><a href="#forms"><i class="icon-chevron-right"></i> Forms</a></li>
+          <li class=""><a href="#buttons"><i class="icon-chevron-right"></i> Buttons</a></li>
+          <li class=""><a href="#images"><i class="icon-chevron-right"></i> Images</a></li>
+          <li class=""><a href="#icons"><i class="icon-chevron-right"></i> Icons by Glyphicons</a></li>
+        </ul>
+</div>
   </body>
 </html>

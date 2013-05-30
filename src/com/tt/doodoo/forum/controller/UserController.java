@@ -2,11 +2,14 @@ package com.tt.doodoo.forum.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.tt.doodoo.forum.service.UserService;
 import com.tt.doodoo.forum.utils.RandomValidateCode;
 
 /**
@@ -17,6 +20,11 @@ import com.tt.doodoo.forum.utils.RandomValidateCode;
 
 @Controller
 public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	
+	private HttpServletRequest request ;
 	/**
 	 * 管理员
 	 * @param request
@@ -45,6 +53,9 @@ public class UserController {
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(HttpServletRequest request,HttpServletResponse response) {
+		String code = (String)request.getAttribute("RANDOMVALIDATECODEKEY");
+		System.out.println("yan  zheng ma shi :::"+code);
+		
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		
@@ -74,9 +85,19 @@ public class UserController {
 	}
 	
 	@RequestMapping("/doRegister")
-	public String doRegister() {
+	public String doRegister(HttpServletRequest request ,HttpServletResponse response) {
+		//String code = (String)request.getAttribute("RANDOMVALIDATECODEKEY");
+		HttpSession session = request.getSession();
+		String code  = (String)session.getAttribute("RANDOMVALIDATECODEKEY");
+		System.out.println("yan  zheng ma shi :::"+code);
 		
 		return null;
 	}
 
+	
+
+	
+	
 }
+
+
