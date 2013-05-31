@@ -1,34 +1,12 @@
-
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
 <!DOCTYPE html>
-<html>
-	<head>
-		<base href="<%=basePath%>">
-
-		<title>My JSP 'toaddTopic.jsp' starting page</title>
-
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-		<meta http-equiv="description" content="This is my page">
-		<!--
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        -->
-
-		<link rel="stylesheet"
-			href="<%=basePath%>app-plugins/bootstrap/css/bootstrap.min.css"
-			type="text/css" media="all" />
-			
-			
-			 <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tiny, opensource, Bootstrap WYSIWYG rich text editor from MindMup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="opensource rich wysiwyg text editor jquery bootstrap execCommand html5" />
+    <meta name="description" content="This tiny jQuery Bootstrap WYSIWYG plugin turns any DIV into a HTML5 rich text editor" />
+    <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />
     <link rel="shortcut icon" href="http://mindmup.s3.amazonaws.com/lib/img/favicon.ico" >
     <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -38,17 +16,18 @@
 		<script src="https://mindmup.s3.amazonaws.com/lib/jquery.hotkeys.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
-		<link href="index.css" rel="stylesheet">
-    <script src="<%=basePath%>js/bootstrap-wysiwyg.js"></script>
+		<link href="../app-plugins/bootstrap-wysiwyg/index.css" rel="stylesheet">
+    <script src="../app-plugins/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
+  </head>
+  <body>
 
-	</head>
-<script type="text/javascript">
-	$('#editor').wysiwyg();
-</script>
-
-	<body>
-	
+<div class="container">
+  <div class="hero-unit">
   
+	
+	<hr/>
+	
+	<div id="alerts"></div>
     <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
       <div class="btn-group">
         <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
@@ -58,9 +37,9 @@
       <div class="btn-group">
         <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
           <ul class="dropdown-menu">
-          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
-          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
-          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+          <li><a data-edit="fontSize 5"><font size="5">大号字</font></a></li>
+          <li><a data-edit="fontSize 3"><font size="3">正常</font></a></li>
+          <li><a data-edit="fontSize 1"><font size="1">小号字</font></a></li>
           </ul>
       </div>
       <div class="btn-group">
@@ -99,72 +78,55 @@
         <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
         <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
       </div>
-      
+     
     </div>
 
-    <div id="editor" style="width: 800px;height: 400px; overflow:scroll">
-      Go ahead
+    <div id="editor">
+      Go ahead&hellip;
     </div>
+  </div>
 
-	
 
-		<form class="form-horizontal">
-			<div class="control-group">
-				<label class="control-label" for="inputEmail">
-					标题：
-				</label>
-				<div class="controls">
-					<input type="text" class="input-xxlarge" placeholder="Email">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="inputPassword">
-					发表到：
-				</label>
-				<div class="controls">
-					<select>
-						<option>
-							1
-						</option>
-						<option>
-							2
-						</option>
-						<option>
-							3
-						</option>
-						<option>
-							4
-						</option>
-						<option>
-							5
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="inputPassword">
-					正文：
-				</label>
-				<div class="controls">
-					<textarea style="width: 600px; height: 350px"></textarea>
-				</div>
-			</div>
-			<div class="control-group">
-					<label class="control-label" >
-						验证码：
-					</label>
-					<div class="controls">
-						<input type="text" class="input-mini" name="code"
-							placeholder="验证码">
-						<img title="点击更换" src="<%=basePath%>getCode? + Math.random()" id="code" onclick="javascript:refresh(this);">
-					</div>
-				</div>
-				<div class="controls">
-				<button type="submit" class="btn btn-large btn-info">
-					发表
-				</button>
-				</div>
-		</form>
-		</body>
-		
+<script>
+  $(function(){
+    function initToolbarBootstrapBindings() {
+      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
+            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+            'Times New Roman', 'Verdana'],
+            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+      $.each(fonts, function (idx, fontName) {
+          fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
+      });
+      $('a[title]').tooltip({container:'body'});
+    	$('.dropdown-menu input').click(function() {return false;})
+		    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
+        .keydown('esc', function () {this.value='';$(this).change();});
+
+      $('[data-role=magic-overlay]').each(function () { 
+        var overlay = $(this), target = $(overlay.data('target')); 
+        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+      });
+      if ("onwebkitspeechchange"  in document.createElement("input")) {
+        var editorOffset = $('#editor').offset();
+        $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+      } else {
+        $('#voiceBtn').hide();
+      }
+	};
+	function showErrorAlert (reason, detail) {
+		var msg='';
+		if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+		else {
+			console.log("error uploading file", reason, detail);
+		}
+		$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
+		 '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+	};
+    initToolbarBootstrapBindings();  
+	$('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
+    window.prettyPrint && prettyPrint();
+  });
+</script>
+
+
 </html>
