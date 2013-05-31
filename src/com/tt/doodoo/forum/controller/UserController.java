@@ -59,8 +59,6 @@ public class UserController {
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(HttpServletRequest request,HttpServletResponse response) {
-		String code = (String)request.getAttribute("RANDOMVALIDATECODEKEY");
-		System.out.println("yan  zheng ma shi :::"+code);
 		
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
@@ -90,7 +88,7 @@ public class UserController {
 		return "register";
 	}
 	
-	@RequestMapping("/doRegister")
+	@RequestMapping(value="/doRegister",method=RequestMethod.POST)
 	public String doRegister(HttpServletRequest request ,HttpServletResponse response) {
 		//String code = (String)request.getAttribute("RANDOMVALIDATECODEKEY");
 		HttpSession session = request.getSession();
