@@ -13,8 +13,10 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.tt.doodoo.forum.model.TtUser;
 import com.tt.doodoo.forum.service.UserService;
 import com.tt.doodoo.forum.utils.RandomValidateCode;
 
@@ -89,13 +91,30 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/doRegister",method=RequestMethod.POST)
+	@ResponseBody
 	public String doRegister(HttpServletRequest request ,HttpServletResponse response) {
-		//String code = (String)request.getAttribute("RANDOMVALIDATECODEKEY");
 		HttpSession session = request.getSession();
 		String code  = (String)session.getAttribute("RANDOMVALIDATECODEKEY");
 		System.out.println("yan  zheng ma shi :::"+code);
 		
+		String account = request.getParameter("userName");
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String getCode = request.getParameter("code");
 		
+		if(code.equalsIgnoreCase(getCode)||code==getCode){
+			System.out.println("----1----");
+			TtUser tu = new TtUser();
+			tu.setUserAccount(account);
+			tu.setUserPassword(password);
+			tu.setUserEmail(email);
+			TtUser t = userService.registUser(tu);
+			return "success";
+			
+		}else{
+			System.out.println("----code error---");
+			
+		}
 		
 		return null;
 	}
