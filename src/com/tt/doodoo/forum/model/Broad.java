@@ -30,6 +30,9 @@ public class Broad implements java.io.Serializable {
 	private String broadName;
 	private String broadDesc;
 	private Integer broadTopicNum;
+	private Integer broadParentId;
+	private	Integer broadLevel;
+	private	String  broadIcon;
 	private Set<Manager> managers = new HashSet<Manager>(0);
 	private Set<Topic> topics = new HashSet<Topic>(0);
 
@@ -73,6 +76,35 @@ public class Broad implements java.io.Serializable {
 
 	public void setBroadTopicNum(Integer broadTopicNum) {
 		this.broadTopicNum = broadTopicNum;
+	}
+	
+	
+	@Column(name = "broad_parentId")
+	public Integer getBroadParentId() {
+		return broadParentId;
+	}
+
+	public void setBroadParentId(Integer broadParentId) {
+		this.broadParentId = broadParentId;
+	}
+	
+	@Column(name = "broad_level")
+	public Integer getBroadLevel() {
+		return broadLevel;
+	}
+
+	public void setBroadLevel(Integer broadLevel) {
+		this.broadLevel = broadLevel;
+	}
+	
+	
+	@Column(name = "broad_icon")
+	public String getBroadIcon() {
+		return broadIcon;
+	}
+
+	public void setBroadIcon(String broadIcon) {
+		this.broadIcon = broadIcon;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "broad")

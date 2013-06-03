@@ -36,11 +36,25 @@ public class forumController {
 	@RequestMapping("/index")
 	public String welcome() {
 		
-		return "index";
+		return "../index";
 	}
-
-	@RequestMapping("/categoryList")
+	
+	/**
+	 * 板块 列表
+	 * @return
+	 */
+	@RequestMapping("/broadList")
 	public String catagoryList() {
+		return "categoryList";
+	}
+	
+	
+	/**
+	 * 添加板块
+	 * @return
+	 */
+	@RequestMapping("/addBroad")
+	public String addBroad() {
 		return "categoryList";
 	}
 	

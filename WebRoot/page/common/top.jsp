@@ -8,13 +8,28 @@
 			<a href="#">多多乐</a>
 		</h1>
 		<div class="pull-right">
-			<span class="span2"><a href="<%=basePath%>tologin">登录</a> </span>
+		<%	
+			String userAccount =(String)session.getAttribute("userAccount");
+			Integer  userId = (Integer)session.getAttribute("userId");
+			
+			if(userAccount!=null){
+				out.print("<span class='span2'>");
+				out.print("欢迎您："+"<a href='tologin'>"+userAccount+"</a>");
+				out.print("</span>");
+			}else{
+				out.print("<span class='span2'>");
+				out.print("<a href='tologin'>登录</a>");
+				out.print("</span>");
+			}
+		%>
+<%--			<span class="span2"><a href="<%=basePath%>tologin">登录</a> </span>--%>
 			<br />
 			<span class="span2"><a href="<%=basePath%>toregister">注册新用户</a>
 			</span>
-			
 		</div>
-		<div>12</div>
+		<div>
+			12
+		</div>
 	</div>
 	<div class="cl">
 		&nbsp;
@@ -33,7 +48,6 @@
 					</button>
 				</div>
 
-				</form>
 			</li>
 		</ul>
 	</div>

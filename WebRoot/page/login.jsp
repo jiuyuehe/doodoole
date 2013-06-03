@@ -4,25 +4,7 @@
 
 <div id="page" class="shell">
 	<%@ include file="/page/common/top.jsp"%>
-	<script type="text/javascript">
-<%--function refresh(obj) {--%>
-<%--	getCode();--%>
-<%--}--%>
-<%----%>
-<%--$(document).ready(function() {--%>
-<%--	getCode();--%>
-<%--});--%>
-<%----%>
-<%--function getCode() {--%>
-<%--	$.ajax( {--%>
-<%--		type : 'POST',--%>
-<%--		url : "<%=basePath%>getCode?" + Math.random(),--%>
-<%--		success : function() {--%>
-<%--			$("#code").attr("src", "<%=basePath%>getCode");--%>
-<%--		}--%>
-<%--	});--%>
-<%--}--%>
-</script>
+
 
 	<div class="main_regist">
 		<div class="wrapper">
@@ -35,7 +17,7 @@
 						用户名：
 					</label>
 					<div class="controls">
-						<input type="text" id="inputEmail" placeholder="Email">
+						<input type="text" name="userName" placeholder="帐号">
 					</div>
 				</div>
 				<div class="control-group">
@@ -43,7 +25,7 @@
 						密码：
 					</label>
 					<div class="controls">
-						<input type="password" id="inputPassword" placeholder="Password">
+						<input type="password" name="password" placeholder="密码">
 					</div>
 				</div>
 				<div class="control-group">
@@ -64,8 +46,6 @@
 
 		</div>
 	</div>
-
-
 
 	<%@ include file="/page/common/footer.jsp"%>
 </div>

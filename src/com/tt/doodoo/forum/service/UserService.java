@@ -15,5 +15,34 @@ public interface UserService {
 	 * @return
 	 */
 	TtUser registUser(TtUser tu);
+	
+	/**
+	 * 登录
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	TtUser login(String userName, String password);
+	
+	/**
+	 * 退出
+	 * @param userId
+	 * @return
+	 */
+	void logout(int userId);
+	
+	/**
+	 * 查看用户资料
+	 * @param userId
+	 * @return
+	 */
+	TtUser getUserInfo(int userId);
+	
+	/**
+	 * 编辑用户资料
+	 * @param user
+	 * @return
+	 */
+	TtUser editUserInfo(TtUser user);
 
 }

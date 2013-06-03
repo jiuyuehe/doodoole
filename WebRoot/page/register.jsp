@@ -22,7 +22,7 @@ function refresh(obj) {
 						用户名：
 					</label>
 					<div class="controls">
-						<input type="text"  placeholder="用户名">
+						<input type="text"  name="userName" placeholder="用户名">
 					</div>
 				</div>
 				<div class="control-group">

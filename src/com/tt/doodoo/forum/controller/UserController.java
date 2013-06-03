@@ -65,6 +65,14 @@ public class UserController {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		
+		TtUser tu  = userService.login(userName,password);
+		
+		if(tu!=null){
+			HttpSession session = request.getSession();
+			session.setAttribute("userAccount", tu.getUserAccount());
+			session.setAttribute("userId", tu.getUserId());
+			return "../index";
+		}
 		
 		return "login";
 	}
@@ -115,7 +123,6 @@ public class UserController {
 			System.out.println("----code error---");
 			
 		}
-		
 		return null;
 	}
 	
