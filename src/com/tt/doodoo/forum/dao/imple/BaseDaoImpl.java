@@ -23,7 +23,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	private Class<T> entityClass;
 	
 	
-	private HibernateTemplate hibernateTemplate;
+	protected HibernateTemplate hibernateTemplate;
 	
 	@Resource
 	public void setHibernateTemplate(HibernateTemplate temp){
@@ -43,7 +43,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @return 返回相应的持久化PO实例
 	 */
 	public T load(Serializable id) {
-		return (T) getHibernateTemplate().load(entityClass, id);
+		return (T) hibernateTemplate.load(entityClass, id);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @return 返回相应的持久化PO实例
 	 */
 	public T get(Serializable id) {
-		return (T) getHibernateTemplate().get(entityClass, id);
+		return (T) hibernateTemplate.get(entityClass, id);
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @return
 	 */
 	public List<T> loadAll() {
-		return getHibernateTemplate().loadAll(entityClass);
+		return hibernateTemplate.loadAll(entityClass);
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @param entity
 	 */
 	public T save(T entity) {
-		getHibernateTemplate().save(entity);
+		hibernateTemplate.save(entity);
 		return entity;
 	}
 
@@ -81,7 +81,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @param entity
 	 */
 	public void remove(T entity) {
-		getHibernateTemplate().delete(entity);
+		hibernateTemplate.delete(entity);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @param entity
 	 */
 	public T update(T entity) {
-		getHibernateTemplate().update(entity);
+		hibernateTemplate.update(entity);
 		return entity;
 	}
 
@@ -102,7 +102,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> find(String hql) {
-		return this.getHibernateTemplate().find(hql);
+		return this.hibernateTemplate.find(hql);
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> find(String hql, Object... params) {
-		return this.getHibernateTemplate().find(hql,params);
+		return this.hibernateTemplate.find(hql,params);
 	}
     
 	/**
@@ -122,7 +122,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @param entity
 	 */
 	public void initialize(Object entity) {
-		this.getHibernateTemplate().initialize(entity);
+		this.hibernateTemplate.initialize(entity);
 	}
 	
 	
@@ -137,7 +137,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		Assert.isTrue(pageNo >= 1, "pageNo should start from 1");
 		// Count查询
 		String countQueryString = " select count (*) " + removeSelect(removeOrders(hql));
-		List<T> countlist = getHibernateTemplate().find(countQueryString, values);
+		List<T> countlist = hibernateTemplate.find(countQueryString, values);
 		long totalCount = (Long) countlist.get(0);
 
 		if (totalCount < 1)
@@ -202,10 +202,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		m.appendTail(sb);
 		return sb.toString();
 	}
-
-	public HibernateTemplate getHibernateTemplate() {
-		return hibernateTemplate;
-	}
+//
+//	public HibernateTemplate getHibernateTemplate() {
+//		return hibernateTemplate;
+//	}
 
     public  Session getSession() {
         return SessionFactoryUtils.getSession(hibernateTemplate.getSessionFactory(),true);

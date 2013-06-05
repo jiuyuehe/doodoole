@@ -15,10 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.sun.org.apache.commons.beanutils.BeanUtils;
+import com.tt.doodoo.forum.model.Broad;
+import com.tt.doodoo.forum.service.BroadService;
 import com.tt.doodoo.forum.service.TopicService;
 import com.tt.doodoo.forum.utils.RandomValidateCode;
 
@@ -30,12 +37,14 @@ public class forumController {
 	private static final Logger log = LoggerFactory
 			.getLogger(forumController.class);
 
-	@Resource
+	@Autowired
 	private TopicService topService;
+	
+	@Autowired
+	private BroadService broadService;
 
 	@RequestMapping("/index")
 	public String welcome() {
-		
 		return "../index";
 	}
 	
@@ -43,9 +52,14 @@ public class forumController {
 	 * 板块 列表
 	 * @return
 	 */
-	@RequestMapping("/broadList")
+	@RequestMapping(value = "/broadList" , produces = "text/plain;charset=UTF-8")
+	@ResponseBody
 	public String catagoryList() {
-		return "categoryList";
+		List<Broad> broads = broadService.getBroadByLevel(0, 1);
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String json = gson.toJson(broads);
+		System.out.println(json);
+		return json;
 	}
 	
 	

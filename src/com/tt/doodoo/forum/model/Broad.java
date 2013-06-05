@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Broad entity. @author MyEclipse Persistence Tools
  */
@@ -26,13 +28,21 @@ public class Broad implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2561544286512884798L;
+	@Expose
 	private Integer broadId;
+	@Expose
 	private String broadName;
+	@Expose
 	private String broadDesc;
+	@Expose
 	private Integer broadTopicNum;
+	@Expose
 	private Integer broadParentId;
+	@Expose
 	private	Integer broadLevel;
+	@Expose
 	private	String  broadIcon;
+	
 	private Set<Manager> managers = new HashSet<Manager>(0);
 	private Set<Topic> topics = new HashSet<Topic>(0);
 
