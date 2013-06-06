@@ -20,6 +20,7 @@ import com.google.gson.annotations.Expose;
  */
 @Entity
 @Table(name = "broad", catalog = "forum")
+
 public class Broad implements java.io.Serializable {
 
 	// Fields

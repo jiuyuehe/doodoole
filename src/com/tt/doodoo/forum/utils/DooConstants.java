@@ -44,5 +44,40 @@ public class DooConstants {
 		}
 
 	}
+	
+	/**
+	 * 主题状态
+	 * @author jiuyuehe
+	 * 通过，驳回，禁止
+	 */
+	public enum TopicStatus {
+
+		pass(1), reject(2), forbind(3);
+
+		public int index;
+
+		private TopicStatus(int index) {
+
+			this.index = index;
+		}
+
+		public static int getName(int index) {
+			for (int i = 0; i < TopicStatus.values().length; i++) {
+				if (i == index) {
+					return index;
+				}
+			}
+			return 0;
+		}
+
+		public int getIndex() {
+			return index;
+		}
+
+		public void setIndex(int index) {
+			this.index = index;
+		}
+
+	}
 
 }

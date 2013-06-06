@@ -11,7 +11,8 @@ public interface RestUrl {
 	public static String editUserInfo	="editUserInfo";
 	public static String resetPWD		="restPWD";
 	
-	//论坛操作
+	
+	//forum操作
 	public static String addTopic		="addTopic";
 	public static String getTopicInfo	="getTopicInfo";
 	public static String editTopic		="editTopic";

@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Topic entity. @author MyEclipse Persistence Tools
  */
@@ -28,16 +30,27 @@ public class Topic implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3661635948135530994L;
+	@Expose
 	private Integer topicId;
+	@Expose
 	private TtUser ttUser;
+	@Expose
 	private Broad broad;
+	@Expose
 	private String topicTitile;
+	@Expose
 	private String topicContent;
+	@Expose
 	private Date topicUpdatetime;
+	@Expose
 	private Date topicCreatetime;
+	@Expose
 	private Integer topicLevel;
+	@Expose
 	private Integer topicStatus;
+	@Expose
 	private Integer topicZan;
+	@Expose
 	private Integer topicCai;
 	private Set<Retopic> retopics = new HashSet<Retopic>(0);
 

@@ -136,7 +136,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		Assert.hasText(hql);
 		Assert.isTrue(pageNo >= 1, "pageNo should start from 1");
 		// Count查询
-		String countQueryString = " select count (*) " + removeSelect(removeOrders(hql));
+		String countQueryString = " select count(*) " + removeSelect(removeOrders(hql));
 		List<T> countlist = hibernateTemplate.find(countQueryString, values);
 		long totalCount = (Long) countlist.get(0);
 

@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * TtUser entity. @author MyEclipse Persistence Tools
  */
@@ -26,12 +28,19 @@ public class TtUser implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 7319428989537732033L;
+	@Expose
 	private Integer userId;
+	@Expose
 	private String userAccount;
+	@Expose
 	private String userEmail;
+	@Expose
 	private String userPassword;
+	@Expose
 	private Date userRegistdate;
+	@Expose
 	private Integer userRole;
+	
 	private Set<Topic> topics = new HashSet<Topic>(0);
 	private Set<Manager> managers = new HashSet<Manager>(0);
 	private Set<Retopic> retopics = new HashSet<Retopic>(0);

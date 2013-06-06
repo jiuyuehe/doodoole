@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * 分页对象. 包含当前页数据及分页信息如总记录数.
  *
@@ -14,15 +16,15 @@ public class Page<T> implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	@Expose
 	private static int DEFAULT_PAGE_SIZE = 20;
-
+	@Expose
 	private int pageSize = DEFAULT_PAGE_SIZE; // 每页的记录数
-
+	@Expose
 	private long start; // 当前页第一条数据在List中的位置,从0开始
-
+	@Expose
 	private List<T> data; // 当前页中存放的记录,类型一般为List
-
+	@Expose
 	private long totalCount; // 总记录数
 
 	/**
