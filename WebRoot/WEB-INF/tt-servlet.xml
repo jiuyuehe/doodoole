@@ -89,7 +89,7 @@
 	<!-- no requested 
 	-->
 	
-	<!-- c3p0 数据源
+	<!-- dbcp 数据源
 	<bean id="propertyConfigurer" class="com.qycloud.oatos.server.security.SecurityPropertyConfigurer">
 		<property name="locations">
 			<list>

@@ -180,9 +180,9 @@ public class forumController {
 		return null;
 	}
 	
-	@RequestMapping("/topic/{topicId}")
+	@RequestMapping("/getTopic/{topicId}")
 	@ResponseBody
-	public String getTopicInfo(@RequestParam("topicId") int topicId) {
+	public String getTopicInfo(@PathVariable("topicId") int topicId) {
 		Topic top = topicService.getTopicById(topicId);
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String json = gson.toJson(top);
