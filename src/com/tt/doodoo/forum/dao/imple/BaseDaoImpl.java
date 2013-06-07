@@ -144,9 +144,16 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			return new Page<T>();
 		// 实际查询返回分页对象
 		int startIndex = Page.getStartOfPage(pageNo, pageSize);
-		Query query = createQuery(hql, values);
+		
+		Assert.hasText(hql);
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		for (int i = 0; i < values.length; i++) {
+			query.setParameter(i, values[i]);
+		}
+		//Query query = createQuery(hql, values);
 		List<T> list = query.setFirstResult(startIndex).setMaxResults(pageSize).list();
-
+		closeSession(session);
 		return new Page<T>(startIndex, totalCount, pageSize, list);
 	}
 
@@ -168,6 +175,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 */
 	public Query createQuery(String hql, Object... values) {
 		Assert.hasText(hql);
+		System.out.println("this session:"+getSession());
+		
 		Query query = getSession().createQuery(hql);
 		for (int i = 0; i < values.length; i++) {
 			query.setParameter(i, values[i]);
@@ -209,6 +218,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
     public  Session getSession() {
         return SessionFactoryUtils.getSession(hibernateTemplate.getSessionFactory(),true);
+    }
+    
+    public  void closeSession(Session session) {
+         SessionFactoryUtils.closeSession(session);
     }
 	
 

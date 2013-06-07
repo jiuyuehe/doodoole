@@ -11,7 +11,32 @@ public class GsonTest {
 	
 	public static void main(String[] args) {
 		
+		test2();
+	}
+	public static void test2(){
 		
+		Pet p =new Pet();
+		p.setAdd("add1");
+		p.setMa("mamam");
+		p.setOct("oct");
+		p.setSes("sess");
+		
+		Tom t = new Tom();
+		t.setName("tom");
+		t.setAge("1");
+		t.setBig("big");
+		t.setPet(p);
+		
+		// new GsonBuilder().setDateFormat();
+		
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		System.out.println(gson.toJson(t));
+		
+		
+	}
+	
+	public void test1(){
+
 		
 		List<Integer> ilist = new ArrayList<Integer>();
 		ilist.add(1);

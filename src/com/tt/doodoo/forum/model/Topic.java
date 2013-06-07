@@ -68,7 +68,7 @@ public class Topic implements java.io.Serializable {
 		this.topicId = topicId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	public TtUser getTtUser() {
 		return this.ttUser;
@@ -78,7 +78,7 @@ public class Topic implements java.io.Serializable {
 		this.ttUser = ttUser;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "broad_id")
 	public Broad getBroad() {
 		return this.broad;

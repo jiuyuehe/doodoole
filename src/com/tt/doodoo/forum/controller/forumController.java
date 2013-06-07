@@ -101,8 +101,16 @@ public class forumController {
 	public String getTopicByBroad(@PathVariable int broadId,@PathVariable int pageIndex,@PathVariable int pageSize) {
 		//List<Broad> broads = broadService.getBroadByLevel(broadId, level);
 		Page<Topic>  topics = topicService.getTopicByBroad(pageIndex, pageSize, broadId);
+		
+		List<Topic> ts = topics.getResult();
+		
+		for (Topic topic : ts) {
+			Broad b = topic.getBroad();
+			System.out.println(b.getBroadName());
+		}
+		
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String json = gson.toJson(topics);
+		String json = gson.toJson(topics.getResult().get(0).getBroad());
 		System.out.println(json);
 		return json;
 	}
