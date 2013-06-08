@@ -21,8 +21,8 @@ public class TopicServiceImpl extends BaseDaoImpl<Topic> implements TopicService
 	}
 
 	public Topic editTopic(Topic topic) {
-		// TODO Auto-generated method stub
-		return null;
+		topicDao.update(topic);
+		return topic;
 	}
 
 	public Page<Topic> getTopicByBroad(int pageIndex, int pageSize, int broadId) {
@@ -31,18 +31,17 @@ public class TopicServiceImpl extends BaseDaoImpl<Topic> implements TopicService
 	}
 
 	public Topic getTopicById(int topicId) {
-		// TODO Auto-generated method stub
-		return null;
+		return topicDao.get(topicId);
 	}
 
 	public Page<Topic> getTopicByUser(int pageIndex, int pageSize, int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "from Topic t where t.ttUser.userId=? order by t.topicCreatetime desc";
+		return topicDao.pagedQuery(hql, pageIndex, pageSize, userId);
 	}
 
 	public Topic publishTopic(Topic topic) {
-		// TODO Auto-generated method stub
-		return null;
+		topicDao.save(topic);
+		return topic;
 	}
 
 	

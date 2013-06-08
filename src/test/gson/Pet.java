@@ -1,4 +1,4 @@
-package com.tt.doodoo.forum.utils;
+package test.gson;
 
 import java.util.ArrayList;
 import java.util.HashSet;

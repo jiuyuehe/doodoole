@@ -47,7 +47,7 @@ public class forumController {
 	@Autowired
 	private RetopicService  reService;
 
-	@RequestMapping("/index")
+	@RequestMapping(RestUrl.index)
 	public String welcome() {
 		return "../index";
 	}

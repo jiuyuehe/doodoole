@@ -6,7 +6,11 @@ import java.util.List;
 import com.tt.doodoo.forum.utils.Page;
 
 public interface BaseDao<T> {
-	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	T load(Serializable id);
 	
 	T get(Serializable id) ;

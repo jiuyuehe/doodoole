@@ -1,34 +1,38 @@
 package com.tt.doodoo.forum.controller;
 
 public interface RestUrl {
+
+	public static String index = "/index";
+
+	// 仅仅网站跳转用
+	public static String tologin = "/link/login";
+	public static String toregist = "/link/regist";
+
+	// 普通用户操作
+	public static String login = "/pub/login";
+	public static String regist = "/pub/regist";
+
+	// forum操作
+	/***
+	 * 发表
+	 * @param TopicVo 
+	 * @method post
+	 */
+	public static String publishTopic = "/ch/addTopic";
 	
-	public static String index="index";
+	/**
+	 * 获取
+	 * @param int topicId 
+	 * @method get
+	 */
+	public static String getTopicById = "/ch/topicInfo/{topicId}";
+	/**
+	 * 编辑
+	 * @param TopicVo vo
+	 * @method post
+	 */
+	public static String editTopic = "/ch/topic/{topicId}";
 	
-	//用户操作
-	public static String login			="login";
-	public static String regist			="regist";
-	public static String userInfo		="userInfo";
-	public static String editUserInfo	="editUserInfo";
-	public static String resetPWD		="restPWD";
-	
-	
-	//forum操作
-	public static String addTopic		="addTopic";
-	public static String getTopicInfo	="getTopicInfo";
-	public static String editTopic		="editTopic";
-	public static String removeTopic	="removeTopic";
-	public static String getAreaBroad	="getAreaBroad";
-	public static String getTopicByPage	="getTopicByPage";
-	public static String getRetopicByPage	="getRetopicByPage";
-	public static String addBroad		="addBroad";
-	public static String editBroad		="editBroad";
-	public static String removeBroad	="removeBroad";
-	
-	
-	//验证码
-	public static String getCode		="getCode";
-	//public static String editTopic="editTopic";
-	//public static String editTopic="editTopic";
-	
+
 
 }

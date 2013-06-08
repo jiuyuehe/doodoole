@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-autowire="byName"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
     http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
     http://www.springframework.org/schema/tx
-    http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
     http://www.springframework.org/schema/util
-    http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+    http://www.springframework.org/schema/util/spring-util-3.2.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
 
-
+	<aop:config proxy-target-class="true">
+		<aop:advisor advice-ref="checkAdvice" pointcut="execution(* com.tt.doodoo.forum.controller..*(..))" />
+	</aop:config>
+	
+	<bean id="checkAdvice" class="com.tt.doodoo.forum.utils.CheckAuthor"/>
 
 	<context:annotation-config />
 	<context:component-scan base-package="com.tt.doodoo.forum" />
 	<mvc:annotation-driven />
-
 
 	<mvc:resources mapping="/js/**" location="/js/**"
 		cache-period="31556926" />
@@ -40,15 +46,15 @@
 		/>
 	-->
 	<bean id="stringHttpMessageConverter"
-		class="org.springframework.http.converter.StringHttpMessageConverter" >
+		class="org.springframework.http.converter.StringHttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/plain;charset=UTF-8</value>
 			</list>
 		</property>
-		</bean>
-		
-		
+	</bean>
+
+
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
@@ -88,74 +94,72 @@
 
 	<!-- no requested 
 	-->
-	
-	<!-- dbcp 数据源
-	<bean id="propertyConfigurer" class="com.qycloud.oatos.server.security.SecurityPropertyConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:*property/jdbc.properties</value>
-			</list>
-		</property>
-	</bean>
+
+	<!--
+		dbcp 数据源 <bean id="propertyConfigurer"
+		class="com.qycloud.oatos.server.security.SecurityPropertyConfigurer">
+		<property name="locations"> <list>
+		<value>classpath:*property/jdbc.properties</value> </list> </property>
+		</bean>
 	-->
 
-	
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-		 <!--maxActive: 最大连接数量-->    
-        <property name="maxActive" value="150"/>  
-        <!--minIdle: 最小空闲连接-->    
-        <property name="minIdle" value="5"/>  
-        <!--maxIdle: 最大空闲连接-->    
-        <property name="maxIdle" value="20"/>  
-        <!--initialSize: 初始化连接-->    
-        <property name="initialSize" value="30"/>  
-        <!-- 连接被泄露时是否打印 -->  
-        <property name="logAbandoned" value="true"/>  
-        <!--removeAbandoned: 是否自动回收超时连接-->    
-        <property name="removeAbandoned"  value="true"/>  
-        <!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->    
-        <property name="removeAbandonedTimeout" value="10"/>  
-        <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->  
-        <property name="maxWait" value="1000"/>  
-        <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->  
-        <property name="timeBetweenEvictionRunsMillis" value="10000"/>  
-        <!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->  
-        <property name="numTestsPerEvictionRun" value="10"/>  
-        <!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->  
-        <property name="minEvictableIdleTimeMillis" value="10000"/>  
-    <property name="validationQuery" value="SELECT NOW() FROM DUAL"/>  
+		<!--maxActive: 最大连接数量-->
+		<property name="maxActive" value="150" />
+		<!--minIdle: 最小空闲连接-->
+		<property name="minIdle" value="5" />
+		<!--maxIdle: 最大空闲连接-->
+		<property name="maxIdle" value="20" />
+		<!--initialSize: 初始化连接-->
+		<property name="initialSize" value="30" />
+		<!-- 连接被泄露时是否打印 -->
+		<property name="logAbandoned" value="true" />
+		<!--removeAbandoned: 是否自动回收超时连接-->
+		<property name="removeAbandoned" value="true" />
+		<!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->
+		<property name="removeAbandonedTimeout" value="10" />
+		<!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->
+		<property name="maxWait" value="1000" />
+		<!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->
+		<property name="timeBetweenEvictionRunsMillis" value="10000" />
+		<!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
+		<property name="numTestsPerEvictionRun" value="10" />
+		<!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->
+		<property name="minEvictableIdleTimeMillis" value="10000" />
+		<property name="validationQuery" value="SELECT NOW() FROM DUAL" />
 	</bean>
 
-   
-<!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-<!--        <property name="dataSource" ref="dataSource" />-->
-<!--    </bean>-->
-	
-	
-	<!--  数据源有问题，容易耗光连接词
 
-	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
-		<property name="alias" value="proxoolDataSource" />
-		<property name="driver" value="${connection.driver_class}" />
-		<property name="driverUrl" value="${connection.url}" />
-		<property name="user" value="${connection.username}" />
-		<property name="password" value="${connection.password}" />
-		
-			<property name="maximumConnectionCount"
-			value="${proxool.maximum.connection.count}"/> <property
-			name="minimumConnectionCount"
-			value="${proxool.minimum.connection.count}" /> <property
-			name="statistics" value="${proxool.statistics}" /> <property
-			name="simultaneousBuildThrottle"
-			value="${proxool.simultaneous.build.throttle}"/>
-		
-	</bean>
-	
-	 -->
+	<!--
+		<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	-->
+	<!--        <property name="dataSource" ref="dataSource" />-->
+	<!--    </bean>-->
+
+
+	<!--
+		数据源有问题，容易耗光连接词 <bean id="dataSource"
+		class="org.logicalcobwebs.proxool.ProxoolDataSource"> <property
+		name="alias" value="proxoolDataSource" /> <property name="driver"
+		value="${connection.driver_class}" /> <property name="driverUrl"
+		value="${connection.url}" /> <property name="user"
+		value="${connection.username}" /> <property name="password"
+		value="${connection.password}" /> <property
+		name="maximumConnectionCount"
+		value="${proxool.maximum.connection.count}"/> <property
+		name="minimumConnectionCount"
+		value="${proxool.minimum.connection.count}" /> <property
+		name="statistics" value="${proxool.statistics}" /> <property
+		name="simultaneousBuildThrottle"
+		value="${proxool.simultaneous.build.throttle}"/> </bean>
+	-->
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -209,7 +213,6 @@
 	</bean>
 
 
-
 	<bean id="hibernateTemplat" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -219,7 +222,5 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="4000000" />
 	</bean>
-
-
 
 </beans>

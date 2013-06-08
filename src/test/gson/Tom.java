@@ -1,4 +1,4 @@
-package com.tt.doodoo.forum.utils;
+package test.gson;
 
 import com.google.gson.annotations.Expose;
 
