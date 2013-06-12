@@ -9,6 +9,9 @@ body {
 	line-height: 18px;
 	color: #888;
 }
+
+.broadcontent{float:left;margin-left: 40px; width:630px;  margin-top: 20px;}
+
 .left_list{float: left; width:130px;  border:dotted; border-color:#F06;   }
 .left_list ul{font-size: 14px; line-height: 38px; text-transform: capitalize; font-weight:bold;  }
 .left_list ul li {float: left; display: inline; list-style-type: none; padding-left:10px;}
@@ -65,8 +68,6 @@ width:100%;
 float:left;
 padding:10px 0 10px 10px;
 }
-
-
 
 
 

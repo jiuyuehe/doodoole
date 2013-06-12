@@ -10,7 +10,7 @@ function refresh(obj) {
 }
 
 </script>
-<body>
+
 	<div class="main_regist">
 		<div class="wrapper">
 			<h2 class="under">
@@ -76,6 +76,8 @@ function refresh(obj) {
 
 		</div>
 	</div>
+
+
 
 	<%@ include file="/page/common/footer.jsp"%>
 

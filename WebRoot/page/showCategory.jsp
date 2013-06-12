@@ -1,17 +1,39 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file="/page/common/header.jsp"%>
 
-<div id="page" class="shell">
-	<%@ include file="/page/common/top.jsp"%>
-   <ul class="nav nav-list bs-docs-sidenav affix">
-          <li class="active"><a href="#typography"><i class="icon-chevron-right"></i> Typography</a></li>
-          <li class=""><a href="#code"><i class="icon-chevron-right"></i> Code</a></li>
-          <li class=""><a href="#tables"><i class="icon-chevron-right"></i> Tables</a></li>
-          <li class=""><a href="#forms"><i class="icon-chevron-right"></i> Forms</a></li>
-          <li class=""><a href="#buttons"><i class="icon-chevron-right"></i> Buttons</a></li>
-          <li class=""><a href="#images"><i class="icon-chevron-right"></i> Images</a></li>
-          <li class=""><a href="#icons"><i class="icon-chevron-right"></i> Icons by Glyphicons</a></li>
-        </ul>
-</div>
-  </body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar" youdao="bind">
+
+	<div class="container">
+			<div id="page" class="pull-left">
+				<%@ include file="/page/common/top.jsp"%>
+				<link rel="stylesheet" href="<%=basePath%>css/docs.css"
+					type="text/css" media="all" />
+				<div class="">
+					<ul class="nav nav-list bs-docs-sidenav pull-left">
+						<li class="active">
+							<a href="#typography"><i class="icon-chevron-right"></i>技术论坛</a>
+						</li>
+						<li class="">
+							<a href="#code"><i class="icon-chevron-right"></i> Code</a>
+						</li>
+						<li class="">
+							<a href="#tables"><i class="icon-chevron-right"></i> 编程</a>
+						</li>
+						<li class="">
+							<a href="#forms"><i class="icon-chevron-right"></i> 表单提交</a>
+						</li>
+						<li class="">
+							<a href="#buttons"><i class="icon-chevron-right"></i> 按钮</a>
+						</li>
+						<li class="">
+							<a href="#images"><i class="icon-chevron-right"></i> 图片</a>
+						</li>
+						<li class="">
+							<a href="#icons"><i class="icon-chevron-right"></i>美女高清那个</a>
+						</li>
+					</ul>
+				</div>
+				<%@ include file="/page/content.jsp"%>
+			</div>
+</body>
 </html>

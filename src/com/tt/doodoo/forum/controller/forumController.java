@@ -70,9 +70,9 @@ public class forumController {
 	 * 跳转子版块板块 列表
 	 * @return
 	 */
-	@RequestMapping(value = "/toSubBroad")
+	@RequestMapping(value = "/toSubBroads")
 	public String toSubBroad() {
-		return "broadTopicList";
+		return "subBroad";
 	}
 	
 	
@@ -152,17 +152,8 @@ public class forumController {
 	
 	@RequestMapping("/showCategory")
 	public String showCategory(HttpServletRequest req,HttpServletResponse res) {
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("html");
-		 try {
-			PrintWriter writer  = res.getWriter();
-			writer.write("hello");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("hello");
-		return null;
+		
+		return "showCategory";
 	}
 	
 	@RequestMapping("/topic/{categoryName}")

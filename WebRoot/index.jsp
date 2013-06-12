@@ -24,7 +24,7 @@
 		<div class="cols three-cols">
 			<div class="cl">&nbsp;</div>
 			<div class="col">
-				<h2><img  src="css/images/forum.gif"/><a href="#" class="more1">热辣美女</a></h2>
+				<h2><img  src="css/images/forum.gif"/><a href="<%=basePath %>/showCategory" class="more1">热辣美女</a></h2>
 
 				<p>今日更新：<font color="#FF0000">10条</font></p>
                 <p>最新恢复：热烈庆祝论坛开通</p>

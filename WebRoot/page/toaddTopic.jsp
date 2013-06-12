@@ -99,14 +99,13 @@
         <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
         <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
       </div>
+       <div id="editor" style="width: 800px;height: 400px; overflow:scroll">
+      Go ahead
+   					 </div>
       
     </div>
 
-    <div id="editor" style="width: 800px;height: 400px; overflow:scroll">
-      Go ahead
-    </div>
-
-	
+   
 
 		<form class="form-horizontal">
 			<div class="control-group">
@@ -147,6 +146,7 @@
 				</label>
 				<div class="controls">
 					<textarea style="width: 600px; height: 350px"></textarea>
+					
 				</div>
 			</div>
 			<div class="control-group">
