@@ -33,7 +33,7 @@
 						</li>
 					</ul>
 				</div>
-				<%@ include file="/page/content.jsp"%>
+				
 			</div>
 </body>
 </html>
