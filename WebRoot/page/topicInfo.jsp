@@ -20,7 +20,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="topic" align="center" style="border: 1px solid #ddd;">
+		<div class="topic" align="center" style="border: 1px solid #ddd; float: left;">
 			<div>
 				<h2>
 					titiletitiletitile
@@ -58,45 +58,65 @@
 				</div>
 			</div>
 
-			<div class="">
-				dividual or compiled
-Plugins can be included individually (though some have required dependencies), or all at once. Both bootstrap.js and bootstrap.min.js contain all plugins in a single file.
+			<div class="topic_content"
+				style="padding: 30px 50px; font-family: Trebuchet MS, Tahoma, Sans-Serif; font-size: 18px; line-height: 30px">
+				我结婚的时候 一定要来喔 因为看见你 我会有安全感 Ｍσ ｍeｎｔ莎莎制作， 希望大家喜欢…QQ391539313 点燃你总抽的香烟
+				欺骗我无法满足的嗅觉 那夜弄懂你嘴唇甘甜 但却感觉距离还是很远 点燃你潇洒的拒绝 我知道只是一厢的情愿 你已不再允许我犯贱
+				没办法让我再次回到你的身边 我习惯你走在我的身后 无论什么要求你全都接受 我如果能够让时光倒流 高傲不再有 毫无保留 犯贱的祈求 宝
+				我爱你 一直爱你 俊俊 你的莎莎 挚爱你 放开手在喧闹的大街 找不到你瞳孔中的画面 你注视的总是很遥远 是我永远够不到的地点
+				你消失在人群的中间 我知道没有丝毫的留恋 明明这次我没再犯贱 但是你好像有一种奇怪的感觉 我习惯你走在我的身后 无论什么要求你全都接受
+				我如果能够让时光倒流 高傲不再有 毫无保留 犯贱的祈求 点燃你总抽的香烟 欺骗我无法满足的嗅觉 那夜弄懂你嘴唇甘甜 但却感觉距离还是很远
+				点燃你潇洒的拒绝 我知道只是一厢的情愿 你已不再允许我犯贱 没办法让我再次回到你的身边 我习惯你走在我的身后 无论什么要求你全都接受
+				我如果能够让时光倒流 高傲不再有 毫无保留 犯贱的祈求 我习惯你走在我的身后 无论什么要求你全都接受 我如果能够让时光倒流 高傲不再有
+				毫无保留 犯贱的祈求 宝 我爱你 一直爱你 俊俊 你的莎莎 挚爱你 dividual or compiled Plugins can
+				be included individually (though some have required dependencies),
+				or all at once. Both bootstrap.js and bootstrap.min.js contain all
+				plugins in a single file. Data attributes You can use all Bootstrap
+				plugins purely through the markup API without writing a single line
+				of JavaScript. This is Bootstrap's first class API and should be
+				your first consideration when using a plugin. That said, in some
+				situations it may be desirable to turn this functionality off.
+				Therefore, we also provide the ability to disable the data attribute
+				API by unbinding all events on the body namespaced with
+				`'data-api'`. This looks like this: $('body').off('.data-api')
+				Alternatively, to target a specific plugin, just include the
+				plugin's name as a namespace along with the data-api namespace like
+				this: $('body').off('.alert.data-api') Programmatic API We also
+				believe you should be able to use all Bootstrap plugins purely
+				through the JavaScript API. All public APIs are single, chainable
+				methods, and return the collection acted upon.
 
-Data attributes
-You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first class API and should be your first consideration when using a plugin.
-
-That said, in some situations it may be desirable to turn this functionality off. Therefore, we also provide the ability to disable the data attribute API by unbinding all events on the body namespaced with `'data-api'`. This looks like this:
-
-$('body').off('.data-api')
-Alternatively, to target a specific plugin, just include the plugin's name as a namespace along with the data-api namespace like this:
-
-$('body').off('.alert.data-api')
-Programmatic API
-We also believe you should be able to use all Bootstrap plugins purely through the JavaScript API. All public APIs are single, chainable methods, and return the collection acted upon.
-
-$(".btn.danger").button("toggle").addClass("fat")
-All methods should accept an optional options object, a string which targets a particular method, or nothing (which initiates a plugin with default behavior):
-
-$("#myModal").modal()                       // initialized with defaults
-$("#myModal").modal({ keyboard: false })   // initialized with no keyboard
-$("#myModal").modal('show')                // initializes and invokes show immediately
-Each plugin also exposes its raw constructor on a `Constructor` property: $.fn.popover.Constructor. If you'd like to get a particular plugin instance, retrieve it directly from an element: $('[rel=popover]').data('popover').
-
-No Conflict
-Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call .noConflict on the plugin you wish to revert the value of.
-
-var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
-$.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the bootstrap functionality
-Events
-Bootstrap provides custom events for most plugin's unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. show) is triggered at the start of an event, and its past participle form (ex. shown) is trigger on the completion of an action.
-
-All infinitive events provide preventDefault functionality. This provides the ability to stop the execution of an action before it starts.
 			</div>
-			<div class="well">
-				userInfo:
-			</div>
+		<%@ include file="/page/replyInfo.jsp"%>
+		<div class="pull-left"> 
+		<div class="pagination"
+					style="margin-top: 0px; margin-bottom: 0px; margin-left: 400px;">
+					<ul>
+						<li>
+							<a href="#">«</a>
+						</li>
+						<li>
+							<a href="#">1</a>
+						</li>
+						<li>
+							<a href="#">2</a>
+						</li>
+						<li>
+							<a href="#">3</a>
+						</li>
+						<li>
+							<a href="#">4</a>
+						</li>
+						<li>
+							<a href="#">5</a>
+						</li>
+						<li>
+							<a href="#">»</a>
+						</li>
+					</ul>
+				</div>
 		</div>
-		
+		</div>
 		<%@ include file="/page/common/footer.jsp"%>
 	</div>
 </div>

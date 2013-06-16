@@ -33,7 +33,6 @@
 			</div>
 			<div class="col">
 				<h2><img  src="css/images/forum.gif"/><a href="#" class="more1">青春不露点</a></h2>
-				
 				<p>今日更新：10条</p>
                 <p>今日更新：10条</p>
                 <p>今日更新：10条</p>
